@@ -1,4 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace Straad.AlgorithmTest._2024
 {
@@ -6,39 +8,10 @@ namespace Straad.AlgorithmTest._2024
     {
         public static void Main(string[] args)
         {
-            RevertString();
             //DosSum();
+            //RevertString();
+            BalanceParentheses();
         }
-
-        #region RevertString
-
-        private static void RevertString()
-        {
-            Console.Write("Write a string and press enter: ");
-            var stringToRevert = Console.ReadLine();
-
-            var stringSplited = stringToRevert.ToArray();
-
-            int x = 0;
-            int y = stringSplited.Length - 1;
-            while (x < y)
-            {
-                char aux;
-
-                aux = stringSplited[x];
-                stringSplited[x] = stringSplited[y];
-                stringSplited[y] = aux;
-
-                x++;
-                y--;
-                Console.WriteLine(x);
-            }
-
-            Console.WriteLine(string.Concat(stringSplited));
-            Console.ReadKey();
-        }
-
-        #endregion RevertString
 
         #region DosSum
 
@@ -74,18 +47,6 @@ namespace Straad.AlgorithmTest._2024
                 lapse = finalTime - initialTime;
 
                 Console.WriteLine("***Second way***");
-                Console.WriteLine($"Number 1 founded is: {numbersFounded[0]}");
-                Console.WriteLine($"Number 2 dounded is: {numbersFounded[1]}");
-                Console.WriteLine($"Lapse time is: {lapse}");
-
-                Console.WriteLine("");
-
-                initialTime = DateTime.Now;
-                numbersFounded = SearchNumbershWayIA(array, targetNumber);
-                finalTime = DateTime.Now;
-                lapse = finalTime - initialTime;
-
-                Console.WriteLine("***IA way***");
                 Console.WriteLine($"Number 1 founded is: {numbersFounded[0]}");
                 Console.WriteLine($"Number 2 dounded is: {numbersFounded[1]}");
                 Console.WriteLine($"Lapse time is: {lapse}");
@@ -203,5 +164,147 @@ namespace Straad.AlgorithmTest._2024
 
         #endregion DosSum
 
+        #region RevertString
+
+        private static void RevertString()
+        {
+            Console.Write("Write a string and press enter: ");
+            var stringToRevert = Console.ReadLine();
+
+            var stringSplited = stringToRevert.ToArray();
+
+            int x = 0;
+            int y = stringSplited.Length - 1;
+            while (x < y)
+            {
+                char aux;
+
+                aux = stringSplited[x];
+                stringSplited[x] = stringSplited[y];
+                stringSplited[y] = aux;
+
+                x++;
+                y--;
+                Console.WriteLine(x);
+            }
+
+            Console.WriteLine(string.Concat(stringSplited));
+            Console.ReadKey();
+        }
+
+        #endregion RevertString
+
+        #region BalanceParentheses
+
+        private static void BalanceParentheses()
+        {
+            while (true)
+            {
+                Console.Write("Write an instruction: ");
+                var expressionToCheck = Console.ReadLine();
+
+                IsBalanced(expressionToCheck);
+
+                Console.WriteLine("");
+                Console.WriteLine("------------------------------------");
+                Console.WriteLine("");
+
+                Console.WriteLine("Press any key to retry, or press Q to exit.");
+                var key = Console.ReadKey();
+
+                if (key.KeyChar.ToString().ToUpper() == "Q")
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("------------------------------------");
+                    Console.WriteLine("");
+                    Console.Clear();
+                    break;
+                }
+            }
+        }
+
+        private static void IsBalanced(object expression)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void IsBalanced(string expression)
+        {
+            var stack = new Stack();
+            string characteresOpen = "([{";
+            string charactereClose = "}])";
+            bool isBalanced = true;
+
+            foreach (var item in expression)
+            {
+                if (characteresOpen.Contains(item))
+                {
+                    stack.Push(item);
+                }
+                else if (charactereClose.Contains(item))
+                {
+                    if (!stack.ContainsItems())
+                    {
+                        isBalanced = false;
+                        break;
+                    }
+
+                    var last = stack.Pop();
+
+                    if (
+                            (item == ')' && last != '(') ||
+                            (item == ']' && last != '[') ||
+                            (item == '}' && last != '{')
+                        )
+                    {
+                        isBalanced = false;
+                    }
+                }
+            }
+
+            Console.WriteLine("");
+
+            if (isBalanced)
+                Console.WriteLine("La cadena sí está balanceada.");
+            else
+                Console.WriteLine("La cadena no está balanceada.");
+        }
+
+        #endregion BalanceParentheses
+
     }
+
+    #region BalanceParentheses
+
+    public class Stack
+    {
+        private List<char> charList = new List<char>();
+
+        public void Push(char character)
+        {
+            charList.Add(character);
+        }
+
+        public char Pop()
+        {
+            int position = charList.Count - 1;
+
+            if (position > -1)
+            {
+                var charToReturn = charList[position];
+                charList.RemoveAt(position);
+                return charToReturn;
+            }
+
+            return ' ';
+        }
+
+        public bool ContainsItems()
+        {
+            return charList.Count > 0;
+        }
+    }
+
+    #endregion BalanceParentheses
+
 }
