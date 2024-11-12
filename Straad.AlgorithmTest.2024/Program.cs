@@ -8,9 +8,10 @@ namespace Straad.AlgorithmTest._2024
     {
         public static void Main(string[] args)
         {
-            //DosSum();
-            //RevertString();
-            BalanceParentheses();
+            //DosSum(); // 1
+            //RevertString(); // 2
+            //BalanceParentheses(); // 3
+            BinarySearch(); // 4
         }
 
         #region DosSum
@@ -272,6 +273,16 @@ namespace Straad.AlgorithmTest._2024
 
         #endregion BalanceParentheses
 
+        #region BinarySearch
+
+        private static void BinarySearch()
+        {
+            // Target number: 15
+            // We'll start at middle, using 12 number.
+            // Ordered List: [3, 6, 9, 12, 15, 18, 21]
+        }
+
+        #endregion BinarySearch
     }
 
     #region BalanceParentheses
