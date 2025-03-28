@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Straad.AlgorithmTest", "Straad.AlgorithmTest\Straad.AlgorithmTest.csproj", "{62299B06-DB44-4EA3-AA6C-3FC021A2246C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62299B06-DB44-4EA3-AA6C-3FC021A2246C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62299B06-DB44-4EA3-AA6C-3FC021A2246C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62299B06-DB44-4EA3-AA6C-3FC021A2246C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62299B06-DB44-4EA3-AA6C-3FC021A2246C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BFFCFBE4-01CA-45B1-906D-80F63D4B4690}
+	EndGlobalSection
+EndGlobal

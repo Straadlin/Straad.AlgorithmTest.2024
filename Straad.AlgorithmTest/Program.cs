@@ -1,4 +1,4 @@
-﻿namespace Straad.AlgorithmTest._2024;
+﻿namespace Straad.AlgorithmTest;
 
 public static class Program
 {
